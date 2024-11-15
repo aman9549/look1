@@ -1,0 +1,33 @@
+---
+import Image from 'astro/components/Image.astro'
+import image1 from '../images/bg.jpg'
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="relative w-full h-[160px]">
+    {/* Background image with blue gradient overlay */}
+    <div class="absolute inset-0">
+        <Image 
+            src={image1} 
+            alt={"Aman"} 
+            class="w-full h-full object-cover opacity-60" 
+        />
+        {/* Blue overlay */}
+        <div class="absolute inset-0 bg-neutral-900/10"></div>
+        {/* Gradient overlay */}
+        <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/60 via-neutral-900/20 to-transparent"></div>
+    </div>
+    
+    {/* Text content */}
+    <div class="relative z-10 h-full flex flex-col justify-center p-8 md:p-16 px-20">
+        <h2 class="text-4xl md:text-4xl  italic font-semibold font-serif text-white mb-4 pl-20">
+            {title}
+        </h2>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+---
+import Image from "astro/components/Image.astro";
+import image1 from "../images/beauty-salon/8.jpg";
+import image2 from "../images/beauty-salon/9.jpg";
+import image3 from "../images/beauty-salon/23.jpg";
+import image4 from "../images/beauty-salon/14.jpg";
+import image5 from "../images/beauty-salon/5.jpg";
+import image6 from "../images/beauty-salon/16.jpg";
+
+// Store both the image object and its URL
+const images = [
+  { src: image1, alt: "Gallery Image 1", url: image1.src },
+  { src: image2, alt: "Gallery Image 2", url: image2.src },
+  { src: image3, alt: "Gallery Image 3", url: image3.src },
+  { src: image4, alt: "Gallery Image 4", url: image4.src },
+  { src: image5, alt: "Gallery Image 5", url: image5.src },
+  { src: image6, alt: "Gallery Image 6", url: image6.src },
+];
+---
+
+<div class="h-full w-full py-10 relative">
+  <div class="grid grid-cols-6 relative">
+    {/* Instagram overlay - positioned relative to grid */}
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-50">
+      <div class="bg-neutral-800 w-[420px] h-64 flex flex-col items-center justify-center gap-3 p-6">
+        <h1 class="text-4xl font-semibold text-white">
+          <i class="fa-brands fa-instagram"></i>
+        </h1>
+        <p class="text-white text-center italic font-serif text-4xl">
+          Follow on Instagram
+        </p>
+        <p class="text-neutral-400">@LookBeautySalon</p>
+      </div>
+    </div>
+
+    {/* Gallery images */}
+    {
+      images.map((image, index) => (
+        <div class="relative group z-40">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            class="h-96 w-96 object-cover"
+          />
+          {/* Hover overlay */}
+          <div
+            class="absolute inset-0 bg-brown-800/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+            onclick={`openModal(${index})`}
+          >
+            <span class="text-white text-5xl font-light">+</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+<!-- Modal -->
+<!-- Modal -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/90">
+  <button
+    onclick="closeModal()"
+    class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none z-[60]"
+    aria-label="Close modal"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-8 w-8"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div class="fixed inset-0 flex items-center justify-center p-4">
+    <div class="relative w-full max-w-5xl mx-auto">
+      <img
+        id="modalImage"
+        src=""
+        alt="Modal Image"
+        class="w-full h-auto max-h-[85vh] object-contain mx-auto"
+      />
+    </div>
+  </div>
+</div>
+<script define:vars={{ images }}>
+  let currentModal;
+  let currentModalImg;
+
+  function initializeGallery() {
+    currentModal = document.getElementById("imageModal");
+    currentModalImg = document.getElementById("modalImage");
+
+    // Close modal when clicking outside the image
+    currentModal?.addEventListener("click", function (event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
+
+    // Close modal with escape key
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  }
+
+  function openModal(imageIndex) {
+    if (currentModal && currentModalImg) {
+      // Use the URL property instead of src
+      const imageUrl = images[imageIndex].url;
+      currentModal.classList.remove("hidden");
+      currentModal.classList.add("flex");
+      currentModalImg.src = imageUrl;
+      document.body.classList.add("overflow-hidden");
+    }
+  }
+
+  function closeModal() {
+    if (currentModal) {
+      currentModal.classList.add("hidden");
+      currentModal.classList.remove("flex");
+      document.body.classList.remove("overflow-hidden");
+    }
+  }
+
+  // Initialize gallery when the DOM is loaded
+  document.addEventListener("DOMContentLoaded", initializeGallery);
+
+  // Make functions available globally
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+</script>
+
+<style>
+  /* Custom brown color for hover effect */
+  .bg-brown-800\/70 {
+    background-color: rgb(93, 64, 55, 0.7);
+  }
+</style>
+
+
+
+
+
+
+
+  <!-- <div class="absolute top-24 left-[50%] h-64 w-[420px] bg-neutral-800 z-50">
+    <div class="flex flex-col items-center justify-center gap-3 h-full p-6">
+      <h1 class="text-4xl font-semibold text-white">
+        <i class="fa-brands fa-instagram"></i>
+      </h1>
+      <p class="text-white text-center italic font-serif text-4xl">
+        Follow on Instagram
+      </p>
+      <p class="text-neutral-400">@LookBeautySalon</p>
+    </div>
+  </div> -->

@@ -1,0 +1,47 @@
+---
+import Image from "astro/components/Image.astro";
+import image1 from "../images/beauty-salon/9.jpg";
+import image2 from "../images/beauty-salon/3.jpg";
+import dot from "../images/dot.png";
+---
+
+<div class="h-full w-full py-10">
+  <div class="h-full w-full grid grid-cols-2">
+    <div class="relative bg-neutral-100">
+      <Image src={image1} alt={"Aman"} class="h-[550px] w-full object-contain" />
+      <div class="absolute bottom-0 right-0 h-56 w-56">
+        <Image src={dot} alt={"Aman"} class="rotate-180" />
+      </div>
+    </div>
+    
+    <div class="flex flex-col item-center h-full w-full gap-4  justify-center p-6">
+      <h1 class="text-xl font-semibold">Do It Best</h1>
+      <h2 class="text-4xl italic font-serif font-semibold">Treat Yourself</h2>
+      <p class="w-96 leading-7 text-lg text-neutral-400 font-light">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+        ullamcorper quam lacus, et suscipit lectus porta efficitur.
+      </p>
+      <button class="py-5 px-9 bg-neutral-800 text-white w-fit">About Us</button>
+    </div>
+  </div>
+ 
+  <div class="h-full w-full grid grid-cols-2 items-center justify-center ">
+    <div class="flex flex-col item-center h-full w-full gap-4  justify-center p-6 relative" >
+        <div class="absolute right-10 space-y-4">
+            <h1 class="text-xl font-semibold">New Customer Discount</h1>
+            <h2 class="text-4xl italic font-serif font-semibold">Discount Voucher</h2>
+            <p class="w-96 leading-7 text-neutral-400 text-lg font-light">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              ullamcorper quam lacus, et suscipit lectus porta efficitur.
+            </p>
+            <button class="py-5 px-9 bg-neutral-800 text-white w-fit">Contact Us</button>
+          </div>
+      </div>
+    <div class="relative bg-neutral-100">
+      <Image src={image2} alt={"Aman"}  class="h-[550px] w-full object-contain"/>
+      <div class="absolute top-0 left-0 h-56 w-56">
+        <Image src={dot} alt={"Aman"} class="" />
+      </div>
+    </div>
+  </div>
+</div>

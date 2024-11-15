@@ -1,0 +1,57 @@
+---
+import HeadingSection from "@/components/HeadingSection.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import Image from 'astro/components/Image.astro'
+import image from '../images/beauty-salon/6.jpg'
+import image2 from '../images/beauty-salon/14.jpg'
+import image1 from '../images/beauty-salon/11.jpg'
+import ClientReviews from "@/components/ClientReviews.astro";
+
+---
+
+<MainLayout>
+    <HeadingSection title="About Us" />
+
+    <div class="container mx-auto py-28 ">
+        <div class="flex items-center justify-center space-x-12">
+          <div>
+            <!-- Use the direct URL in the src attribute -->
+         <Image src={image} alt={"Aman"} class="h-[480px] w-[480px] object-cover"/>
+          </div>
+          <div class="space-y-5 py-6">
+            <h1 class="text-2xl font-semibold text-neutral-800">Our Story</h1>
+            <h2 class="text-5xl font-semibold italic font-serif mb-2">About Porto Salon</h2>
+            <p class="mb-4 max-w-lg text-base text-neutral-400 font-NORMAL">Look Salon was created in 1999 and is run by John and Janice to provide the finest salon services, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="py-5 px-9 bg-neutral-800 text-white ">About Us</button>
+          </div>
+        </div>
+
+
+      <div class="px-40 space-y-10 py-10">
+       <p class="text-lg font-medium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum eleifend eros a pharetra. Cras aliquam vestibulum vehicula. Sed sed lectus risus. Vestibulum maximus ac purus in euismod. In venenatis tellus ante, id porta risus semper quis. Aenean vel posuere urna, sit amet placerat massa. Quisque efficitur interdum libero, sed dictum lorem euismod sed.
+        </p>
+
+        <p class="text-neutral-600"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum eleifend eros a pharetra. Cras aliquam vestibulum vehicula. Sed sed lectus risus. Vestibulum maximus ac purus in euismod. In venenatis tellus ante, id porta risus semper quis. Aenean vel posuere urna, sit amet placerat massa. Quisque efficitur interdum libero, sed dictum lorem euismod sed.</p>
+      </div>
+
+      <div class="flex space-x-8 items-center justify-center">
+
+        <Image src={image2} alt={"image"} class="h-[580px] w-[580px] object-cover"/>
+
+        <Image src={image1} alt={"image"} class="h-[580px] w-[580px] object-cover" />
+      </div>
+
+
+      <div class="px-40 text-neutral-600 py-10">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum eleifend eros a pharetra. Cras aliquam vestibulum vehicula. Sed sed lectus risus. Vestibulum maximus ac purus in euismod. In venenatis tellus ante, id porta risus semper quis. Aenean vel posuere urna, sit amet placerat massa. Quisque efficitur interdum libero, sed dictum lorem euismod sed.
+      </div>
+
+      <ClientReviews />
+
+
+      <div class="px-40 text-neutral-600 py-10">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum eleifend eros a pharetra. Cras aliquam vestibulum vehicula. Sed sed lectus risus. Vestibulum maximus ac purus in euismod. In venenatis tellus ante, id porta risus semper quis. Aenean vel posuere urna, sit amet placerat massa. Quisque efficitur interdum libero, sed dictum lorem euismod sed.
+      </div>
+      </div>
+</MainLayout>

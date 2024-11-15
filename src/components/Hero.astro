@@ -1,0 +1,100 @@
+---
+import Image from "astro/components/Image.astro";
+import image1 from "../images/slide-1.jpg";
+import image2 from "../images/slide-2.jpg";
+import Button from "../utility/Button.astro";
+import { Carousel } from "webcoreui/astro";
+---
+
+<main>
+
+  <!-- <Slider
+  dots={true}
+  infinite={true}
+  speed={500}
+  slidesToShow={1}
+  slidesToScroll={1}
+  autoplay={true}
+  autoplaySpeed={3000}
+>
+<div class="hero-image relative">
+  <div
+    class="absolute flex text-left flex-col items-end top-[50%] w-[40%] translate-y-[-50%] right-[15%] gap-4"
+  >
+    <p class="text-lg text-slate-800 font-bold tracking-widest">
+      Look Salon Located in LA
+    </p>
+    <h1 class="text-8xl font-medium font-serif italic text-neutral-800">
+      Full-Service
+    </h1>
+    <p class="text-base font-medium text-slate-600 leading-8">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, <br
+      />
+      Lorem ipsum dolor sit amet consectetur. voluptates expedita!
+    </p>
+    <Button title="View Services" />
+  </div>
+
+  <Image src={image2} class="h-screen" alt={"Hero Image"} />
+</div>
+  <div>
+    <h3>Slide 2</h3>
+  </div>
+  <div>
+    <h3>Slide 3</h3>
+  </div>
+</Slider> -->
+
+
+  <Carousel items={2}>
+    <li>
+      <div class="hero-image relative">
+        <div
+          class="absolute flex text-left flex-col items-start top-[50%] w-[40%] translate-y-[-50%] left-[15%] gap-4"
+        >
+          <p class="text-lg text-slate-800 font-bold tracking-widest">
+            Look Salon Located in LA
+          </p>
+          <h1 class="text-8xl font-medium font-serif italic text-neutral-800">
+            Full-Service
+          </h1>
+          <p class="text-base font-medium text-slate-600 leading-8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, <br
+            />
+            Lorem ipsum dolor sit amet consectetur. voluptates expedita!
+          </p>
+          <Button title="View Services" />
+        </div>
+        <Image src={image1} class="h-screen" alt={"Hero Image"} />
+      </div>
+    </li>
+    <li>
+      <div class="hero-image relative">
+        <div
+          class="absolute flex text-left flex-col items-end top-[50%] w-[40%] translate-y-[-50%] right-[15%] gap-4"
+        >
+          <p class="text-lg text-slate-800 font-bold tracking-widest">
+            Look Salon Located in LA
+          </p>
+          <h1 class="text-8xl font-medium font-serif italic text-neutral-800">
+            Full-Service
+          </h1>
+          <p class="text-base font-medium text-slate-600 leading-8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, <br
+            />
+            Lorem ipsum dolor sit amet consectetur. voluptates expedita!
+          </p>
+          <Button title="View Services" />
+        </div>
+
+        <Image src={image2} class="h-screen" alt={"Hero Image"} />
+      </div>
+    </li>
+  </Carousel>
+
+
+
+</main>
+
+
+
